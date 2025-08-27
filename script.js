@@ -112,7 +112,12 @@ function showResults() {
     questionContainer.classList.add('hide');
     nextBtn.classList.add('hide');
     resultsContainer.classList.remove('hide');
-    scoreText.innerText = `Skor Anda: ${score} dari ${examQuestions.length}`;
+    
+    // 1. Calculate the precentage score.
+    const finalScore = Math.round((score / examQuestions.length) * 100);
+
+    // 2. Display the final score out of 100.
+    scoreText.innerText = `Skor Akhir Anda: ${finalScore}`;
 }
 
 // --- 5. EVENT LISTENER ---
