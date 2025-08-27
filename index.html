@@ -1,38 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
     <head>
-        <meta char="UTF-8">
+        <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Ujian Sekolah</title>
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
         
-        <div class="quiz-container">
+        <div id="start-container" class="container">
+            <h1>Selamat Datang di Ujian Sekolah</h1>
+            <p>Anda punya waktu 5 menit untuk menyelesaikan ujian. Klik untuk memulai!</p>
+            <button id="start-btn">Mulai Ujian</button>
+        </div>
+
+        <div class="quiz-container container hide">
 
             <div class="quiz-header">
-                <h2>Ujian Sekolah</h2>
-                <div id="timer"></div>
+                <h2 id="progress-indicator"></h2> <div id="timer"></div>
             </div>
 
             <div id="question-container">
-                <p id="question-text">Question text goes here</p>
+                <p id="question-text"></p>
                 <div id="image-container"></div>
                 <div id="answer-options"></div>
             </div>
 
-            <div id="results-container" class="hide">
-                <h2>Ujian selesai!</h2>
-                <p id="score-text">Skor anda: 0 / 0</p>
-            </div>
-
             <div class="controls">
+                <button id="submit-btn" class="hide">Submit</button>
                 <button id="next-btn" class="hide">Next</button>
             </div>
-
         </div>
         
-        <script src="script.js"></script>
+        <div id="results-container" class="container hide">
+            <h2>Ujian Selesai!</h2>
+            <p id="score-text">Skor Anda: 0 / 0</p>
+        </div>
+        
+        <script src="script.js" defer></script>
     </body>
-
 </html>
