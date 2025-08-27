@@ -24,6 +24,17 @@ const examQuestions = [
 
 ]
 
+// --- NEW SHUFFLE FUCTION ---
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        // Pick a random index from 0 to i
+        const j = Math.floor(Math.random() * (i + 1));
+        // Swap the elements at positions i and j
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+}
+
+
 // --- 2. STATE VARIABLES ---
 let currentQuestionIndex = 0;
 let score = 0;
@@ -39,6 +50,7 @@ const scoreText = document.getElementById('score-text');
 
 // --- 4. CORE FUNCTION ---
 function startQuiz () {
+    shuffleArray(examQuestions);
     currentQuestionIndex = 0;
     score = 0;
     resultsContainer.classList.add('hide');
@@ -60,7 +72,12 @@ function showQuestion() {
         imageContainer.appendChild(img);
     }
 
-    currentQuestion.answers.forEach(answer => {
+    // MODIFIED: Create a shuffled copy of answers
+    const shuffleAnswers = [...currentQuestion.answers];
+    shuffleArray(shuffleAnswers);
+
+    // MODIFIED: Use the shuffle copy to create buttons
+    shuffleAnswers.forEach(answer => {
         const button = document.createElement('button');
         button.innerText = answer.text;
         button.classList.add('answer-btn');
